@@ -1,0 +1,19 @@
+# fly.toml app configuration file generated for memes-nvrk on 2023-06-16T20:47:44+04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "memes-nvrk"
+primary_region = "ams"
+
+[[mounts]]
+  source = "memos_data"
+  destination = "/var/opt/memos"
+  processes = ["app"]
+
+[http_service]
+  internal_port = 5230
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
